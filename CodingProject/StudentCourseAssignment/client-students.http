@@ -1,0 +1,49 @@
+POST http://localhost:1024/students/createStudent
+Content-Type: application/json
+
+{
+	"name": "Stefano",
+	"creditCapacity": 35
+}
+
+
+###
+
+GET http://localhost:1024/students/getAll
+Accept: */*
+Cache-Control: no-cache
+
+###
+
+
+POST http://localhost:1024/students/updateStudent?studentId=62d104c84b541674395e0a6c
+Content-Type: application/json
+
+{
+	"name": "Stefano",
+	"courses:": 35
+}
+
+
+###
+
+GET http://localhost:1024/students/getCoursesOfStudent?studentId=62d1086b636e0eb9b89150be
+Accept: */*
+Cache-Control: no-cache
+
+
+###
+
+GET http://localhost:1024/students/getStudentGrade?studentId=62d1086b636e0eb9b89150be&courseId=62d10d1a1a036e2429ac6655
+Accept: */*
+Cache-Control: no-cache
+
+
+
+###
+
+GET http://localhost:1024/students/getStudentGradePointAverage?studentId=62d1086b636e0eb9b89150be
+Accept: */*
+Cache-Control: no-cache
+
+

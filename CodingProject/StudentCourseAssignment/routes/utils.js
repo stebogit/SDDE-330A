@@ -5,5 +5,6 @@ module.exports = {
     C: 3,
     D: 2,
     F: 0
-  }
+  },
+  average: (array) => array.reduce((a, b) => a + b) / array.length,
 }
