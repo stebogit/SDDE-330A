@@ -18,3 +18,17 @@ separate, so it can be modified independently.
 
 The `FileManager` class allows the current `User` to perform common actions on/with Filesystem's
 `Item`s. It also manages the `FileIndex` making sure its content remains up-to-date.
+
+
+# S.O.L.I.D.
+
+Classes should do (almost exclusively) one thing,
+and you should extend them instead of modifying them when adding new features.
+This allows to transparently replace instances of subclasses of a same parent
+class without breaking effects.
+
+The above can be reached by defining interface contracts; however no class
+should implement any interface that it doesn't use.
+
+A SOLID design should define classes based on interfaces in order to allow component decoupling,
+facilitating composition among system blocks, reusability and testability.

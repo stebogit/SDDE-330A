@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>A and I Relationship</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: 'Source Sans Pro', 'Lucida Grande', sans-serif;
+            font-size: 13px;
+            color: #4b2e83;
+        }
+        p { margin: 0; position: relative;}
+    </style>
+</head>
+<body>
+<div style="width: 600px;">
+    <p style="top: 30px; left: 23px;">
+        Max Stable
+    </p>
+
+    <canvas id="chart" style="height: 600px; width: 600px"></canvas>
+
+    <p style="bottom: 30px; right: calc(-100% + 85px)">
+        Max Unstable
+    </p>
+</div>
+
+<script>
+  const data = []
+
+  // from running index.js
+  const components = {
+    'batch-insert': { instability: 0.8, abstraction: 0.33 },
+    bolt: { instability: 0.83, abstraction: 0.26 },
+    buffers: { instability: 0.67, abstraction: 0 },
+    capabilities: { instability: 0.78, abstraction: 0.31 },
+    codegen: { instability: 0.93, abstraction: 0.28 },
+    collections: { instability: 0.47, abstraction: 0.31 },
+    'command-line': { instability: 0.38, abstraction: 0.44 },
+    common: { instability: 0.22, abstraction: 0.44 },
+    concurrent: { instability: 0.75, abstraction: 0.5 },
+    configuration: { instability: 0.57, abstraction: 0.15 },
+    'consistency-check': { instability: 0.92, abstraction: 0.2 },
+    csv: { instability: 0.86, abstraction: 0.37 },
+    'data-collector': { instability: 0.89, abstraction: 0.14 },
+    dbms: { instability: 0.81, abstraction: 0.18 },
+    diagnostics: { instability: 0.5, abstraction: 0.75 },
+    fabric: { instability: 0.8, abstraction: 0.23 },
+    'fulltext-index': { instability: 0.67, abstraction: 0.03 },
+    'graph-algo': { instability: 0.86, abstraction: 0.35 },
+    'graphdb-api': { instability: 0.46, abstraction: 0.51 },
+    'id-generator': { instability: 0.75, abstraction: 0.22 },
+    'import-tool': { instability: 0.9, abstraction: 0 },
+    'import-util': { instability: 0.83, abstraction: 0.41 },
+    index: { instability: 0.79, abstraction: 0.25 },
+    io: { instability: 0.47, abstraction: 0.46 },
+    'kernel-api': { instability: 0.77, abstraction: 0.64 },
+    kernel: { instability: 0.74, abstraction: 0.27 },
+    layout: { instability: 0.33, abstraction: 0.13 },
+    lock: { instability: 0.6, abstraction: 0.5 },
+    logging: { instability: 0.5, abstraction: 0.33 },
+    'lucene-index': { instability: 0.81, abstraction: 0.28 },
+    monitoring: { instability: 0.86, abstraction: 0.67 },
+    native: { instability: 0.67, abstraction: 0.29 },
+    'neo4j-exceptions': { instability: 1, abstraction: 0.03 },
+    'neo4j-harness': { instability: 1, abstraction: 0.31 },
+    neo4j: { instability: 1, abstraction: 0.29 },
+    'procedure-api': { instability: 0.25, abstraction: 0.15 },
+    procedure: { instability: 0.86, abstraction: 0.12 },
+    'push-to-cloud': { instability: 1, abstraction: 0.33 },
+    'random-values': { instability: 0.33, abstraction: 0.22 },
+    'record-storage-engine': { instability: 0.84, abstraction: 0.22 },
+    resource: { instability: 0.25, abstraction: 0.75 },
+    schema: { instability: 0.89, abstraction: 0.43 },
+    security: { instability: 0.82, abstraction: 0.24 },
+    'server-api': { instability: 1, abstraction: 0.53 },
+    server: { instability: 0.94, abstraction: 0.12 },
+    'spatial-index': { instability: 0.67, abstraction: 0.3 },
+    ssl: { instability: 0.82, abstraction: 0 },
+    'storage-engine-api': { instability: 0.7, abstraction: 0.65 },
+    'storage-engine-util': { instability: 0.8, abstraction: 0.17 },
+    'token-api': { instability: 0.75, abstraction: 0.44 },
+    unsafe: { instability: 0.5, abstraction: 0 },
+    values: { instability: 0.44, abstraction: 0.39 },
+    wal: { instability: 0.67, abstraction: 0.36 }
+  }
+
+  Object.keys(components).forEach((c) => {
+    data.push({
+      x: components[c].instability,
+      y: components[c].abstraction,
+      name: c,
+    })
+  })
+
+  new Chart(
+    document.getElementById('chart'), {
+      type: 'scatter',
+      responsive: true,
+      maintainAspectRatio: false,
+      data: {
+        datasets: [{
+          data,
+          backgroundColor: '#4b2e83'
+        }],
+      },
+      options: {
+        plugins: {
+          legend: { display: false },
+          title: { display: true, text: 'A and I Relationship', font: { size: 20 } },
+          tooltip: {
+            callbacks: {
+              label: (tooltipItems) => {
+                const item = tooltipItems.raw
+                return `${item.name}: [${item.x}, ${item.y}]`
+              },
+            }
+          }
+        },
+        scales: {
+          x: {
+            title: { display: true, text: 'I', font: { size: 20 } },
+            max: 1,
+            min: 0,
+            type: 'linear',
+            position: 'bottom'
+          },
+          y: {
+            title: { display: true, text: 'A', font: { size: 20 } },
+            max: 1,
+            min: 0,
+          }
+        }
+      },
+    })
+</script>
+</body>
+</html>
