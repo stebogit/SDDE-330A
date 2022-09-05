@@ -4,7 +4,8 @@
 	"description": "This project will address some fundamental topics in application data modeling and remote service application implementation.",
 	"private": true,
 	"scripts": {
-		"test": "jest --watch"
+		"test": "jest",
+		"test-dev": "jest --watch"
 	},
 	"keywords": [],
 	"author": "",

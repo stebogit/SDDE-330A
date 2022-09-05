@@ -8,7 +8,7 @@ if (process.env.NODE_ENV !== 'production') {
  * Module dependencies.
  */
 const express = require('../express')
-const debug = require('debug')('studentcourseassignment:server')
+const debug = require('debug')('studentcourse:server')
 const http = require('http')
 
 /**

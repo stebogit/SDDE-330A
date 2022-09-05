@@ -66,13 +66,20 @@ Correctness and performance:
 - Functions perform its operations correctly to produce the expected result in all cases
 - Functions are optimally designed in terms of space and time complexity
 
-
 ---
 
-#### Coding Project Check-In #1
-Student should set up the gRPC or RESTful data service and make sure the connection between
-the application and the data service is working along with a general data model of the solution (either relational or
-document models are fine). Student should be able to rationalize their choices with pros and cons.
+## Run code
 
+- Start server:
+  ```
+  cd ./StudentCourseAssignment
+  npm start
+  ```
+
+- Run client tests:
+  ```
+  cd ./Client
+  npm test
+  ```
 
 [1]: https://www.linkedin.com/pulse/database-reliability-write-ahead-logging-arpit-bhayani/?trk=articles_directory
