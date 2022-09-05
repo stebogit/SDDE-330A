@@ -6,13 +6,13 @@
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"start": "node ./bin/www",
-		"dev": "DEBUG=myapp:* nodemon ./bin/www"
+		"dev": "DEBUG=studentcourseassignment:* nodemon ./bin/www"
 	},
 	"keywords": [],
 	"author": "",
 	"license": "MIT",
 	"dependencies": {
-		"cookie-parser": "~1.4.3",
+		"axios": "0.27.2",
 		"debug": "~2.6.9",
 		"dotenv": "16.0.1",
 		"express": "~4.16.0",

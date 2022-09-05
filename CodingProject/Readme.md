@@ -40,7 +40,7 @@ call Tx0 is made to remove 2, and a call Tx1 is made to add student 4, then a Tx
 save [1, 2, 3, 4] but the correct answer after these two calls should be [1, 3, 4]).
 
 The DataService should also be recoverable in the event that the application needs to be restarted. Students can decide
-recoverable options such as a write-ahead-log. For this functionality, the `StudentCourseAssignment` application’s
+recoverable options such as a [write-ahead-log][1]. For this functionality, the `StudentCourseAssignment` application’s
 `resetDataStore()` function will take a GMT epoch timestamp and the DataStore will be set to the latest state up to that
 timestamp. If timestamp is null, then the DataStore will be completely reset.
 
@@ -74,9 +74,5 @@ Student should set up the gRPC or RESTful data service and make sure the connect
 the application and the data service is working along with a general data model of the solution (either relational or
 document models are fine). Student should be able to rationalize their choices with pros and cons.
 
-# Questions
 
-- mongo DB is not publicly accessible, how to share?
-- does mongo DB allow for "undo" or track history?
-  https://lucid.app/lucidchart/6da5c026-979a-4931-8d5b-d682b5130bb7/edit?viewport_loc=-4%2C-341%2C2415%2C1343%2CHWEp-vi-RSFO&invitationId=inv_8596d451-e363-43fd-8b44-6bdb6da276d2#- what are the components and the entities?
-- 
+[1]: https://www.linkedin.com/pulse/database-reliability-write-ahead-logging-arpit-bhayani/?trk=articles_directory
