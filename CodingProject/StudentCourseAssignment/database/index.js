@@ -10,6 +10,14 @@ async function connect () {
   })
 }
 
+const GRADES = {
+  A: 5,
+  B: 4,
+  C: 3,
+  D: 2,
+  F: 0
+}
+
 module.exports = {
   connect,
   models: {
@@ -17,4 +25,5 @@ module.exports = {
     Student: require('./models/Student'),
     Grade: require('./models/Grade'),
   },
+  GRADES
 }

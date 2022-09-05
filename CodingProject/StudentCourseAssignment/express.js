@@ -1,7 +1,6 @@
 const createError = require('http-errors')
 const express = require('express')
 const path = require('path')
-const cookieParser = require('cookie-parser')
 const logger = require('morgan')
 const db = require('./database')
 
@@ -16,15 +15,18 @@ server.set('view engine', 'hbs')
 server.use(logger(isDevelopment ? 'dev' : 'combined'))
 server.use(express.json())
 server.use(express.urlencoded({ extended: false }))
-server.use(cookieParser())
 server.use(express.static(path.join(__dirname, 'public')))
 
 server.use('/students', require('./routes/students'))
 server.use('/courses', require('./routes/courses'))
 
-server.get('/resetDataStore', (req, res) => {
-  const t = req.timestamp
-  res.send('resetDataStore')
+server.get('/resetDataStore', async (req, res) => {
+  const { models: { Course, Student, Grade } } = require('./database')
+  // const t = req.timestamp
+  await Course.deleteMany({})
+  await Student.deleteMany({})
+  await Grade.deleteMany({})
+  res.json({ success: true })
 })
 
 // catch 404 and forward to error handler
