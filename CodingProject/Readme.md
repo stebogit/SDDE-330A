@@ -70,6 +70,11 @@ Correctness and performance:
 
 ## Run code
 
+Set up a mongoDB database (for example a free dev [instance][2]) and get the url to connect to your database
+(something like `mongodb+srv://<database-name>:<password>@cluster0.2w2rm.mongodb.net`).<br>
+Inside `./StudentCourseAssignment` create a `.env` file, copying from `.env.example`, and set the `DB_URL` variable with 
+your database url
+
 - Start server:
   ```
   cd ./StudentCourseAssignment
@@ -83,3 +88,4 @@ Correctness and performance:
   ```
 
 [1]: https://www.linkedin.com/pulse/database-reliability-write-ahead-logging-arpit-bhayani/?trk=articles_directory
+[2]: https://www.mongodb.com/atlas
