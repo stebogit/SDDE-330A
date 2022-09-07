@@ -78,12 +78,14 @@ your database url
 - Start server:
   ```
   cd ./StudentCourseAssignment
+  npm install # just once to install dependencies
   npm start
   ```
 
 - Run client tests:
   ```
   cd ./Client
+  npm install # just once to install dependencies
   npm test
   ```
 
